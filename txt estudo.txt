@@ -1,0 +1,71 @@
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import DatabaseInit from "./src/database/dbinit";
+const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+import Login from "./src/screens/Login";
+import Signup from "./src/screens/Signup";
+import Home from "./src/screens/Home";
+import DrawerContent from "./src/screens/DrawerContent";
+export default function App() {
+  new DatabaseInit
+  console.log("iniciando banco de dados...")
+  function HomeDrawer() {
+    return (
+      <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+        <Drawer.Screen name="Home" component={Home} />
+      </Drawer.Navigator>
+    );
+  }
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="signin"
+        screenOptions={{
+          headerMode: "screen",
+          headerTintColor: "white",
+          headerStyle: { backgroundColor: "#003F5C" },    
+        }}
+      >
+        <Stack.Screen
+          name="Signin"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeDrawer}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+/////////////////////
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import React from "react";
+
+import Home from "./src/screens/Home";
+import MenuSelecoes from "./src/screens/MenuSelecoes";
+import GuiaPasseio from "./src/screens/GuiaPasseio";
+import Cadastro from "./src/screens/Cadastro";
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ headerShown: false }}
+        />
