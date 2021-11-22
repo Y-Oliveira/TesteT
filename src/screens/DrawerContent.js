@@ -56,7 +56,7 @@ export function DrawerContent(props) {
 
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem style={styles.tabsColor0} label="Home" onPress={() => {props.navigation.NavigationContainer
-            ('homeScreen')}} />
+            ('homeScreen')}}/>
             <DrawerItem style={styles.tabsColor1} label="Perfil" onPress={() => {}} />
             <DrawerItem style={styles.tabsColor2} label="Jogos recentes" onPress={() => {}} />
             <DrawerItem style={styles.tabsColor3} label="Checklists" onPress={() => {}} />
